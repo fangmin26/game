@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      width:100%;
+      height:100vh;
+      margin:0;
+      padding:0;
+      display:flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+.widget{
+  margin:1%;
+  padding:3%;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.40), 0 10px 30px rgba(0,0,0,0.50);
+}
+
+.quote {
+  position:relative;
+  width: 50%;
+  height:50%;
+  font-size: 30px;
+}
+
+#qAuth{
+  font-size: 20px;
+  padding: 5% 40% 0% 5%;
+  float: left;
+}
+
+.quote button{
+  position:absolute;
+  bottom:2%;
+  right:2%;
+  font-size: 15px;
+  padding: 3%;
+  width: 40%;
+  float: right;
+  cursor:pointer;
+  border-radius: 6px;
+  border:2px solid black;
+  transition:all .5s ease;
+}
+.quote button:hover{
+  background:#000;
+  color:#fff;
+}
+
+  </style>
+</head>
+<body>
+      <div class="quote widget">
+        <div id="qString">THIS IS RANDOM QUOTE APP.<br/>
+          PLEASE CLICK DOWN BELOW.</div>
+        <div id="qAuth"></div>
+        <button onclick="newQuote()"> CLICK & GET A NEW QUOTE</button>
+      </div>
+    </div>
+    <script>
+      var quotes=[
+    ["How many cares one loses when one decides not to be something but to be someone","-Gabrielle “Coco” Chanel"],
+  ["Be who you are and say what you feel, because those who mind don’t matter and those who matter don’t mind","-Dr. Seuss"],
+  ["Do your own thing on your own terms and get what you came here for","-Oliver James"],
+  ["Flatter yourself critically","-Willis Goth Regier"],
+  ["Do what you feel in your heart to be right, for you’ll be criticized anyway", "-Eleanor Roosevelt"],
+  ["Whenever you find yourself on the side of the majority, it is time to pause and reflect", "-Mark Twain"],
+  ["Better to write for yourself and have no public, than to write for the public and have no self","-Cyril Connolly"]
+  ];
+
+// Select new random quote for widget
+function newQuote(){
+  var randomNum = Math.floor(Math.random() * (quotes.length));
+  document.getElementById("qString").innerText = quotes[randomNum][0];
+  document.getElementById("qAuth").innerText = quotes[randomNum][1];
+}
+
+    </script>
+</body>
+</html>

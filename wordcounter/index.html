@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+  margin: 0px;
+  padding: 0px;
+  box-sizing:border-box;
+  font-family:"Arial",san-serif;
+  outline:none;
+}
+body{
+  display: flex;
+    height: 100vh;
+    place-items: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+h1{padding-bottom:10px;}
+#count{
+  padding-bottom:20px;
+}
+textarea{
+  min-width:50vw;
+  min-height:50vh;
+  padding:10px 0px 0 10px;
+  background-color:transparent;
+  border:3px solid black;
+  border-radius:10px;
+  font-size:1.4em;
+  transition:0.3s
+}
+
+textarea:hover{
+  transition:0.3s;
+  border:3px solid #ccc;
+}
+  </style>
+</head>
+<body>
+  <h1>Word Counter</h1>
+  <span id="count">Number of words(en)</span>
+<textarea name="textarea" id="area" placeholder="text here"></textarea>
+
+
+<script>
+  let inp = document.querySelector("#area");
+let out = document.querySelector("#count");
+
+let counter = 0
+
+inp.addEventListener('change',()=>{
+  let trimmed = inp.value.trim();
+  if(trimmed==""){
+    out.innerText = "start typing"
+  }
+  else{
+    let regex = /([A-Z]|)\w+/g;
+    let counter = trimmed.match(regex).length
+    out.innerText = `Number of words(en) : ${counter}`
+  }
+})
+
+</script>
+</body>
+</html>
